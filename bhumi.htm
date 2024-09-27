@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8e1e7;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            transform: rotate(-45deg);
+            animation: pulse 1s infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -75px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 75px;
+            top: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1) rotate(-45deg);
+            }
+            50% {
+                transform: scale(1.1) rotate(-45deg);
+            }
+        }
+
+        .text {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                top: 0;
+                left: 0;
+            }
+            25% {
+                top: 0;
+                left: calc(100vw - 80px);
+            }
+            50% {
+                top: calc(100vh - 40px);
+                left: calc(100vw - 80px);
+            }
+            75% {
+                top: calc(100vh - 40px);
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="heart"></div>
+    <div class="text">₹300</div>
+</body>
+</html>
